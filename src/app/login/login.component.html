@@ -1,1 +1,78 @@
-<p>login works!</p>
+@if (!nuevo) {
+    <div class="container">
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <button type="button" class="btn btn-link" [routerLink]="['/']"><i class="bi bi-arrow-left"></i> Volver</button>
+                            <strong class="btn btn-link" (click)="nuevo = true">Crea una nueva cuenta</strong>
+                        </div>
+                        <h3 class="text-center">Iniciar Sesión</h3>
+                    </div>
+                    <div class="card-body">
+                        <form (submit)="onSubmit()">
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Correo Electrónico</label>
+                                <input type="email" class="form-control" id="email" name="email"
+                                    aria-describedby="emailHelp">
+                                <div id="emailHelp" class="form-text">Nunca compartiremos tu correo electrónico con nadie
+                                    más.</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="pass" class="form-label">Contraseña</label>
+                                <input type="password" class="form-control" id="pass" name="pass">
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1">Recordarme</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    }
+    @if (nuevo) {
+    <div class="container">
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <button type="button" class="btn btn-link" [routerLink]="['/']"><i class="bi bi-arrow-left"></i> Volver</button>
+                            <strong class="btn btn-link" (click)="nuevo = false">Inicia sesión</strong>
+                        </div>
+                        <h3 class="text-center">Crea tu propia cuenta</h3>
+                    </div>
+    
+                    <div class="card-body">
+                        <form (submit)="onSubmit()">
+                            <div class="mb-3">
+                                <label for="usernameNuevo" class="form-label">Nombre de Usuario</label>
+                                <input type="text" class="form-control" id="usernameNuevo" name="usernameNuevo" [(ngModel)]="usernameNuevo">
+                            </div>
+                            <div class="mb-3">
+                                <label for="emailNuevo" class="form-label">Correo Electrónico</label>
+                                <input type="text" class="form-control" id="emailNuevo" name="emailNuevo" [(ngModel)]="correoNuevo">
+                            </div>
+                            <div class="mb-3">
+                                <label for="passwordNuevo" class="form-label">Contraseña</label>
+                                <input type="password" class="form-control" id="passwordNuevo" name="passwordNuevo" [(ngModel)]="passwordNuevo">
+                            </div>
+                            <div class="mb-3">
+                                <label for="passwordNuevoMisma" class="form-label">Confirmar Contraseña</label>
+                                <input type="password" class="form-control" id="passwordNuevoMisma" name="passwordNuevoMisma"
+                                    [(ngModel)]="passwordNuevoMisma">
+                            </div>
+                            <!-- Agrega los campos restantes para el nuevo cliente -->
+                            <button type="submit" class="btn btn-primary text-end">Crear Cliente</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    }
