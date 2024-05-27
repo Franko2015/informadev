@@ -1,21 +1,23 @@
 import { Routes } from '@angular/router';
-import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
-import { ErrorComponent } from './error/error.component';
-import { AccountComponent } from './home/account/account.component';
-import { AdminComponent } from './home/admin/admin.component';
-import { PageComponent } from './home/page/page.component';
-import { SettingsComponent } from './home/settings/settings.component';
+import { LoginComponent } from './pages/login/login.component';
+import { ErrorComponent } from './pages/error/error.component';
+import { AccountComponent } from './pages/account/account.component';
+import { AdminComponent } from './pages/admin/admin.component';
+import PageComponent from './pages/page/page.component';
+import { SettingsComponent } from './pages/settings/settings.component';
+import { HomeComponent } from './components/home/home.component';
 
 export const routes: Routes = [
-  {path: '', component: HomeComponent},
-  {path: 'login/:nuevo', component: LoginComponent},
-  {path: '**', component: ErrorComponent},
-  {path: 'account', component: AccountComponent},
-  {path: 'account', children: [
-    {path: 'admin', component: AdminComponent},
-    {path: 'page', component: PageComponent},
-    {path: 'settings', component: SettingsComponent}
-  ]}
+  { path: '', component: HomeComponent },
+  { path: 'login/:nuevo', component: LoginComponent },
+  { path: 'account', component: AccountComponent },
+  {
+    path: 'private', children: [
+      { path: 'admin', component: AdminComponent },
+      { path: 'page', component: PageComponent },
+      { path: 'settings', component: SettingsComponent }
+    ]
+  },
+  { path: '**', component: ErrorComponent }
 ];
+

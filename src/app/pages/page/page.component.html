@@ -1,0 +1,16 @@
+<app-priv-nav />
+<div class="container-fluid mt-2">
+
+    @for (item of texts; track $index) {
+    <!-- Cambiado de <input> a <textarea> -->
+    <textarea [(ngModel)]="item.text" class="input-line" name="input" title="Escribe algo aquí" id="input-{{item.id}}"
+        autofocus rows="1" draggable="true" (dragstart)="DragStart($event, item)" (dragover)="DragOver($event)"
+        (drop)="Drop($event, item.id)" (input)="adjustTextareaHeight($event.target)"
+        (keyup)="adjustTextareaHeight($event.target)" (input)="start()"></textarea>
+    }
+
+    <div class="contenedor-debajo" (click)="newInput()">
+        Clickea aquí para seguir escribiendo.. 👈
+    </div>
+
+</div>

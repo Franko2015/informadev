@@ -1,0 +1,29 @@
+.input-line {
+    background-color: transparent;
+    border: none;
+    height: auto; /* Esto permite que el textarea se ajuste automáticamente en altura */
+    width: 100%;
+    padding: 8px;
+    resize: none;
+    overflow: hidden;
+    padding-inline: 10px;
+    margin: 0;
+}
+.input-line:focus,
+.input-line:hover{
+    outline: none;
+    background-color: rgba(100, 100, 100, 0.104);
+    transition: ease-in 2s ease-in-out;
+}
+.contenedor-debajo{
+    margin: 0;
+    width: 100%;
+    height: 50px;
+    cursor: text;
+    color: grey;
+    opacity: 0;
+    padding-inline: 15px;
+}
+.contenedor-debajo:hover{
+    opacity: 0.3;
+}
